@@ -13,6 +13,16 @@ const initialState = {
     errorMessage: undefined,
 }
 
+/**
+ * 
+ * @param state 
+ * @default initialState
+ * @type {object}
+ * @param action 
+ * @type {object}
+ * @returns 
+ */
+
 export const fetchPersonagensReducer = (state = initialState, action: ActionType) => {
     switch (action.type) {
         case FETCH_PERSONAGENS_START:

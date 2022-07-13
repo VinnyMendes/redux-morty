@@ -38,23 +38,34 @@ export const favoritarPersonagens = (id: number) => {
 
 }
 
+/**
+ * 
+ * @param page
+ * @default 1
+ * @void
+ * @author Vinicius Mendes
+ */
 
-
-
-export const fetchPersonagemThunk = () => async (dispatch: any) => {
+export const fetchPersonagemThunk = (page = 1) => async (dispatch: any) => {
     dispatch(fetchPersonagemStarted());
     await new Promise(resolve => setTimeout(resolve, 1500));
     try {
-        const response = await fetch('https://rickandmortyapi.com/api/character'); 
+        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`); 
         const json = await response.json(); 
-        const jsonFilter = json.results.map((result : any) =>  ({...result, favorito: false}))      
+        const jsonFilter = json.results.map((result : any) =>  ({...result, favorito: false}))    
         dispatch(fetchPersonagemSuccess(jsonFilter));                  
 
     } catch (error: any) {
         dispatch(fetchPersonagemError(error.message));
     }    
 }
-
+/**
+ * 
+ * @param texto
+ * @default undefined
+ * @void
+ * @author Vinicius Mendes
+ */
 export const filterPersonagemThunk = (texto: string) => async (dispatch: any) => {
     dispatch(fetchPersonagemStarted());
     try {

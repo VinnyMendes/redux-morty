@@ -8,13 +8,13 @@ import "./paginacao.css";
  *
  * @returns Elemento JSX
  */
-const Paginacao = () => {
+const Paginacao = (props) => {
   return (
     <div className="paginacao">
       <button disabled={true} className="botaos primary">
         Anterior
       </button>
-      <button disabled={false} className="botaos primary">
+      <button disabled={false} onClick={props.prox} className="botaos primary">
         Próximo
       </button>
     </div>

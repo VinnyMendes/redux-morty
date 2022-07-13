@@ -1,0 +1,19 @@
+.paginacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.botaos{
+  background-color: #96f541 !important;
+  color: black !important;
+  border: 1px #96f541 solid!important;
+  transition: all 0.2s ease-in-out !important;
+  margin: 2rem 0;
+}
+.botaos:hover{
+  background-color: transparent !important;
+  color: white !important;
+
+}
